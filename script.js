@@ -11,6 +11,12 @@ function removeChildren() {
     };
 };
 
+function changeColor() {
+    clone.addEventListener('mouseover', function () {
+        clone.style.background = `#${Math.floor(Math.random() * 999999)}`;
+    })
+}
+
 sizeButton.addEventListener('click', function () {
     let value = +prompt('Enter a number < 100', 16);
     let s = 100 / value;
@@ -24,10 +30,11 @@ sizeButton.addEventListener('click', function () {
                 let clone;
                 clone = square.cloneNode();
                 clone.style.aspectRatio = '1/1';
-               /*  clone.style.width = `${s}%`;
-                clone.style.height = `${s}%`; */
-                clone.style.border = '.5px solid #000000';
+                clone.style.border = '.1px solid #000000';
                 grid.appendChild(clone);
+                clone.addEventListener('mouseover', function () {
+                    clone.style.background = `#${Math.floor(Math.random() * 999999)}`;
+                })
             };
             for (p = 1; p < value; p++)
             fr += '1fr ';
@@ -37,3 +44,4 @@ sizeButton.addEventListener('click', function () {
         cloneSquare();
     };
 });
+
